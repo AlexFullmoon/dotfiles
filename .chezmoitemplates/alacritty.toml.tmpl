@@ -1,0 +1,107 @@
+# Main
+
+[terminal.shell]
+program = "{{ .os_loginshell }}"
+args = ["-l"]
+
+[env]
+LANG = "en_US.UTF-8"
+
+# Window
+
+[window]
+padding = { x = 5, y = 5 }
+{{- if eq .chezmoi.os "darwin" }}
+blur = true
+decorations = "Buttonless"
+opacity = 0.9
+option_as_alt = "Both"
+{{- end }}
+dynamic_padding = true
+dynamic_title = true
+resize_increments = true
+dimensions = { columns = 120, lines = 32 }
+
+# Font 
+
+[font]
+builtin_box_drawing = true
+{{- if eq .chezmoi.os "darwin" }}
+size = 12
+{{- end }}
+{{- if ne .chezmoi.os "darwin" }}
+size = 14
+{{- end }}
+normal = { family = "PragmataPro", style = "Regular" }
+italic = { family = "PragmataPro", style = "Italic" }
+bold = { family = "PragmataPro", style = "Bold" }
+bold_italic = { family = "PragmataPro", style = "Bold Italic" }
+
+
+# Cursor and stuff
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[cursor]
+thickness = 0.3
+style = { blinking = "On", shape = "Beam"}
+
+
+# Keybindings
+{{- if eq .chezmoi.os "windows" }}
+[keyboard]
+bindings = [
+{ key = "V", mods = "Control", action = "Paste" },
+{ key = "V", mods = "Control|Shift", chars = "\u0016" },
+{ key = "C", mods = "Control", action = "Copy" },
+{ key = "C", mods = "Control|Shift", chars = "\u0003" },
+]
+{{- end }}
+
+[mouse]
+bindings = [
+{ action = "PasteSelection", mouse = "Middle" },
+]
+
+# Hints
+
+[[hints.enabled]]
+{{- if eq .chezmoi.os "windows" }}
+command = "explorer"
+{{- end }}
+{{- if ne .chezmoi.os "windows" }}
+command = "xgd-open"
+{{- end }}
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+mouse = { enabled = true, mods = "Control" }
+
+# Current colours - Alabaster Dark
+
+[colors]
+
+primary = { background = "#0E1415", foreground = "#CECECE" }
+cursor = { cursor = "#CECECE", text = "#0E1415" }
+
+[colors.normal]
+black = "#0E1415"
+blue = "#4a88e4"
+cyan = "#23acdd"
+green = "#73ca50"
+magenta = "#915caf"
+red = "#e25d56"
+white = "#f0f0f0"
+yellow = "#e9bf57"
+
+[colors.bright]
+black = "#777777"
+blue = "#6f8fdb"
+cyan = "#4ac9e2"
+green = "#88db3f"
+magenta = "#e987e9"
+red = "#f36868"
+white = "#FFFFFF"
+yellow = "#f0bf7a"

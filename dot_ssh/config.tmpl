@@ -1,0 +1,87 @@
+VisualHostKey yes
+AddKeysToAgent yes
+{{- if ne .chezmoi.os "windows" }}
+IgnoreUnknown yes
+UseKeychain yes
+{{- end }}
+
+Host gitea
+	HostName git.moonlightwell.ru
+	Port 22
+	User sc-gitea
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/gitea
+	IdentitiesOnly yes
+
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/github
+	IdentitiesOnly yes
+
+Host router
+	User fullmoon
+	# HostName 77.123.249.79
+	HostName 192.168.88.1
+	Port 52022
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
+
+Host moonlightwell
+	User maintenance
+	HostName 192.168.88.99
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlightwell
+	SendEnv LANG LC_*
+	RemoteForward 52698 127.0.0.1:52698
+	SetEnv TERM=xterm-256color
+ 	RemoteCommand /var/services/homes/maintenance/.cargo/bin/shpool attach S
+	RequestTTY yes
+
+Host moonlightwell-detach
+	User maintenance
+	HostName 192.168.88.99
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlightwell
+	RemoteCommand /var/services/homes/maintenance/.cargo/bin/shpool detach S
+	VisualHostKey no
+
+Host moonlightwell-notmux
+	User maintenance
+	HostName 192.168.88.99
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlightwell
+	SendEnv LANG LC_*
+	RemoteForward 52698 127.0.0.1:52698
+	SetEnv TERM=xterm-256color
+	RequestTTY yes
+
+Host rpi
+	User rpi
+	HostName 192.168.88.100
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/rpi
+
+Host aeza
+	User root
+	HostName 89.208.103.40
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
+	RemoteForward 52698 127.0.0.1:52698
+	RequestTTY yes
+	SetEnv TERM=xterm-256color
+	RemoteCommand shpool attach S
+
+Host aeza-detach
+	User root
+	HostName 89.208.103.40
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
+	RemoteCommand shpool detach S
+	VisualHostKey no
+
+Host aeza-notmux
+	User root
+	HostName 89.208.103.40
+	Port 22
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
+	RemoteForward 52698 127.0.0.1:52698
+	RequestTTY yes

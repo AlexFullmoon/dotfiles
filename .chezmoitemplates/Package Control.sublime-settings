@@ -1,0 +1,45 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Alabaster Color Scheme",
+		"ASL Syntax Highlight",
+		"AutoHotkey",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"Compare Side-By-Side",
+		"Dockerfile Syntax Highlighting",
+		"DotENV",
+		"Exalt",
+		"Generic Config",
+		"GhostText",
+		"GitHub Theme",
+		"GitSavvy",
+		"Hungry Backspace",
+		"INI",
+		"LanguageTool",
+		"LSP",
+		"LSP-lemminx",
+		"Markdown Table Creator",
+		"MarkdownPreview",
+		"MikrotikScript",
+		"nginx",
+		"Package Control",
+		"PlatformSettings",
+		"PowerShell",
+		"Pretty JSON",
+		"RemoteSubl",
+		"SideBarTools",
+		"Terminus",
+		"TOML",
+		"WordingStatus",
+	],
+	 "install_prereleases":
+	 [
+	 	"Package Control",
+	],
+}

@@ -1,0 +1,40 @@
+{
+	"theme": "auto",
+	"light_theme": "GitHub Light.sublime-theme",
+	"dark_theme": "GitHub Dark.sublime-theme",
+	"color_scheme": "auto",
+	"light_color_scheme": "Alabaster.sublime-color-scheme",
+	"dark_color_scheme": "Alabaster Dark.sublime-color-scheme",
+
+    "font_face": "PragmataPro Liga",
+    "font_options": ["ss01"],
+	
+	"translate_tabs_to_spaces": true,
+	"tab_size": 4,
+	"mini_diff": "auto",
+	"rulers": [80],
+
+
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	// OS specific settings
+	"osx":
+	{
+    	"font_size": 16.0,
+	},
+	"linux":
+	{
+    	"font_size": 12.0,
+	},
+	"windows":
+	{
+    	"font_size": 12,
+	},
+
+	"update_check": false,
+	"enable_telemetry": false,
+	"index_files": false,
+	"font_size": 12,
+}

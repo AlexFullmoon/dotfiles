@@ -1,0 +1,13 @@
+[user]
+	name = AlexFullmoon
+	email = alex.fullmoon@moonlightwell.ru
+{{- if eq .chezmoi.os "windows" }}
+[core]
+	sshcommand = C:/Windows/System32/OpenSSH/ssh.exe
+[credential]
+	helper = manager
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+[credential]
+	helper = osxkeychain
+{{- end }}
