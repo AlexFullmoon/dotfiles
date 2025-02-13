@@ -25,7 +25,7 @@ dimensions = { columns = 120, lines = 32 }
 # Font 
 
 [font]
-builtin_box_drawing = true
+builtin_box_drawing = false
 {{- if eq .chezmoi.os "darwin" }}
 size = 12
 {{- end }}
@@ -33,16 +33,16 @@ size = 12
 size = 14
 {{- end }}
 normal = { family = "PragmataPro", style = "Regular" }
-italic = { family = "PragmataPro", style = "Italic" }
-bold = { family = "PragmataPro", style = "Bold" }
-bold_italic = { family = "PragmataPro", style = "Bold Italic" }
+italic = { style = "Italic" }
+bold = { style = "Bold" }
+bold_italic = { style = "Bold Italic" }
 
 
 # Cursor and stuff
 
 [selection]
 save_to_clipboard = true
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [cursor]
 thickness = 0.3

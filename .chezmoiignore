@@ -7,7 +7,6 @@ Library/Application Support/Sublime Text/Packages/
 Library/Application Support/Sublime Text/Packages/User/
 Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings
 Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings
-Library/Application Support/Sublime Text/Packages/User/Theme - Monokai Pro.sublime-settings
 {{- end -}}
 
 {{- if ne .chezmoi.os "windows" -}}
@@ -20,7 +19,6 @@ AppData/Roaming/Sublime Text/Packages
 AppData/Roaming/Sublime Text/Packages/User
 AppData/Roaming/Sublime Text/Packages/User/Package Control.sublime-settings
 AppData/Roaming/Sublime Text/Packages/User/Preferences.sublime-settings
-AppData/Roaming/Sublime Text/Packages/User/Theme - Monokai Pro.sublime-settings
 Documents/
 Documents/PowerShell/
 Documents/PowerShell/Microsoft.PowerShell_profile.ps1
