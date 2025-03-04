@@ -63,7 +63,7 @@ Host rpi
 Host aeza
 	User root
 	HostName 89.208.103.40
-	Port 22
+	Port 22376
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
 	RemoteForward 52698 127.0.0.1:52698
 	RequestTTY yes
@@ -73,7 +73,7 @@ Host aeza
 Host aeza-detach
 	User root
 	HostName 89.208.103.40
-	Port 22
+	Port 22376
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
 	RemoteCommand shpool detach S
 	VisualHostKey no
@@ -81,7 +81,7 @@ Host aeza-detach
 Host aeza-notmux
 	User root
 	HostName 89.208.103.40
-	Port 22
+	Port 22376
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
 	RemoteForward 52698 127.0.0.1:52698
 	RequestTTY yes
