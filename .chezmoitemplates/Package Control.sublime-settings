@@ -40,6 +40,6 @@
 	],
 	 "install_prereleases":
 	 [
-	 	"Package Control",
+		"Package Control",
 	],
 }

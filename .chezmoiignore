@@ -15,5 +15,7 @@ Documents/**
 {{- end -}}
 
 {{- if ne .chezmoi.os "linux" -}}
-.alacritty.toml
+.config/
+.config/**
+#.config/alacritty/alacritty.toml
 {{- end -}}
