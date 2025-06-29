@@ -1,7 +1,6 @@
 VisualHostKey yes
 AddKeysToAgent yes
-{{- if ne .chezmoi.os "windows" }}
-# if eq .chezmoi.os "darwin" ?
+{{- if eq .chezmoi.os "darwin" }}
 IgnoreUnknown yes
 UseKeychain yes
 {{- end }}
