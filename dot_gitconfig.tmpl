@@ -6,6 +6,9 @@
 	sshcommand = C:/Windows/System32/OpenSSH/ssh.exe
 [credential]
 	helper = manager
+[credential "https://git.moonlightwell.ru"]
+    provider = generic
+	helper = manager
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 [credential]
