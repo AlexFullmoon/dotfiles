@@ -33,7 +33,7 @@ Host moonlightwell
 	SendEnv LANG LC_*
 	RemoteForward 52698 127.0.0.1:52698
 	SetEnv TERM=xterm-256color
- 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{- .chezmoi.hostname }}
+ 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{ .chezmoi.hostname }}
 	RequestTTY yes
 
 Host moonlightwell-direct
@@ -60,7 +60,7 @@ Host aeza
 	RemoteForward 52698 127.0.0.1:52698
 	RequestTTY yes
 	SetEnv TERM=xterm-256color
-	RemoteCommand /root/.cargo/bin/zellij attach -c {{- .chezmoi.hostname }}
+	RemoteCommand /root/.cargo/bin/zellij attach -c {{ .chezmoi.hostname }}
 
 Host aeza-direct
 	User root
