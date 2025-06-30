@@ -1,9 +1,9 @@
+README.md
+
 {{- if ne .chezmoi.os "darwin" -}}
 .alacritty.toml
 Library/
 Library/**
-# Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings
-# Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings
 {{- end -}}
 
 {{- if ne .chezmoi.os "windows" -}}
@@ -11,11 +11,8 @@ AppData/
 AppData/**
 Documents/
 Documents/**
-# Documents/PowerShell/Microsoft.PowerShell_profile.ps1
 {{- end -}}
 
 {{- if ne .chezmoi.os "linux" -}}
-.config/
-.config/**
-#.config/alacritty/alacritty.toml
+.config/alacritty/alacritty.toml
 {{- end -}}

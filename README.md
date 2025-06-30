@@ -1,0 +1,15 @@
+# Dotfiles
+
+Used with [chezmoi](https://www.chezmoi.io).
+
+Current state:
+
+- [x] .gitconfig
+- [x] SSH hosts
+- [x] Alacritty
+- [x] Powershell (W)
+- [x] Fish (L/M)
+- [x] Sublime Text
+- [x] Ghostty  (L/M)
+- [ ] VSCode
+- [ ] Solaar (L)
