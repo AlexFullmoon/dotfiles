@@ -1,8 +1,8 @@
 # Main
 
 [terminal.shell]
-program = "{{ .os_loginshell }}"
-args = ["-l"]
+program = "{{ lookPath "fish" }}"
+args = [""]
 
 [env]
 LANG = "en_US.UTF-8"
