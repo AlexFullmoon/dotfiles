@@ -16,5 +16,7 @@ Documents/**
 
 # Linux-specific
 {{- if ne .chezmoi.os "linux" }}
-.config/alacritty/alacritty.toml
+.config/alacritty
+.config/sublime-text
+.config/solaar
 {{- end }}
