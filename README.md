@@ -1,6 +1,8 @@
 # Dotfiles
 
-Used with [chezmoi](https://www.chezmoi.io).
+You should not use these.
+
+See [chezmoi](https://www.chezmoi.io).
 
 Current state:
 
@@ -10,7 +12,7 @@ Current state:
 - [x] Powershell (W)
 - [x] Fish (L/M)
 - [x] Sublime Text
-- [x] Ghostty  (L/M)
+- [x] Ghostty (L/M)
 - [ ] VSCode
 - [ ] Keyboard layouts (L/M)
 - [x] Solaar (L) - need to check for device and add key divertion
