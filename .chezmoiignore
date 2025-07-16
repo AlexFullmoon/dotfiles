@@ -4,6 +4,7 @@ README.md
 .alacritty.toml
 Library/
 Library/**
+.config/
 {{- end }}
 
 # Windows-specific
@@ -16,6 +17,7 @@ Documents/**
 
 # Linux-specific
 {{- if ne .chezmoi.os "linux" }}
+.config/
 .config/alacritty
 .config/sublime-text
 .config/solaar
