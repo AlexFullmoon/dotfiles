@@ -1,7 +1,11 @@
 # Main
 
 [terminal.shell]
+{{- if ne .chezmoi.os "windows" }}
 program = "{{ lookPath "fish" }}"
+{{ else }}
+program = "{{ lookPath "pwsh" }}"
+{{- end }}
 args = [""]
 
 [env]

@@ -2,7 +2,11 @@
 # Empty values are used to reset config keys to default.
 auto-update = check
 
+{{- if ne .chezmoi.os "windows" }}
 command = {{ lookPath "fish" }}
+{{ else }}
+command = {{ lookPath "pwsh" }}
+{{- end }}
 
 font-family = PragmataPro
 theme = "Monokai Pro Spectrum"
