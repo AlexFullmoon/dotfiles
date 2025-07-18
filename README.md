@@ -12,4 +12,5 @@ Current state:
 - [x] Sublime Text
 - [x] Ghostty  (L/M)
 - [ ] VSCode
+- [ ] Keyboard layouts (L/M)
 - [x] Solaar (L) - need to check for device and add key divertion
