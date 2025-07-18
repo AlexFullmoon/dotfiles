@@ -4,7 +4,7 @@
 {{- if ne .chezmoi.os "windows" }}
 program = "{{ lookPath "fish" }}"
 {{ else }}
-program = "{{ lookPath "pwsh" }}"
+program = "pwsh"
 {{- end }}
 args = [""]
 
