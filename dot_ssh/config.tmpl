@@ -44,6 +44,7 @@ Host moonlightwell-direct
 	SendEnv LANG LC_*
 	SetEnv TERM=xterm-256color
 	RequestTTY yes
+	VisualHostKey no
 
 Host rpi
 	User rpi
@@ -68,3 +69,4 @@ Host aeza-direct
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
 	SetEnv TERM=xterm-256color
 	RequestTTY yes
+	VisualHostKey no
