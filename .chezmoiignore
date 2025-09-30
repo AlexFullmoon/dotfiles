@@ -1,10 +1,17 @@
 README.md
+
+# Linux-specific
+{{- if ne .chezmoi.os "linux" }}
+.config/alacritty
+.config/sublime-text
+.config/solaar
+{{- end }}
+
 # macOS-specific
 {{- if ne .chezmoi.os "darwin" }}
 .alacritty.toml
 Library/
 Library/**
-.config/
 {{- end }}
 
 # Windows-specific
@@ -15,10 +22,6 @@ Documents/
 Documents/**
 {{- end }}
 
-# Linux-specific
-{{- if ne .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "windows" }}
 .config/
-.config/alacritty
-.config/sublime-text
-.config/solaar
 {{- end }}
