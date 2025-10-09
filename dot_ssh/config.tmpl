@@ -25,6 +25,9 @@ Host router
 	Port 52022
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
 
+Match OriginalHost moonlightwell Exec "ip route | grep ^10.99.0.0/20"
+	HostName 100.64.0.22
+
 Host moonlightwell
 	User maintenance
 	HostName 192.168.88.99
