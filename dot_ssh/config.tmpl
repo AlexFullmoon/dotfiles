@@ -1,5 +1,4 @@
 AddKeysToAgent yes
-WarnWeakCrypto no
 {{- if eq .chezmoi.os "darwin" }}
 IgnoreUnknown yes
 UseKeychain yes
@@ -25,10 +24,12 @@ Host router
 	Port 52022
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
 
-Match OriginalHost moonlightwell Exec "ip route | grep ^10.99.0.0/20"
-	HostName 100.64.0.22
 
 Host moonlightwell
+ 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{ .chezmoi.hostname }}
+	VisualHostKey yes
+
+Host moonlightwell moonlightwell-direct
 	User maintenance
 	HostName 192.168.88.99
 	Port 22
@@ -36,18 +37,8 @@ Host moonlightwell
 	SendEnv LANG LC_*
 	RemoteForward 52698 127.0.0.1:52698
 	SetEnv TERM=xterm-256color
- 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{ .chezmoi.hostname }}
 	RequestTTY yes
-	VisualHostKey yes
-
-Host moonlightwell-direct
-	User maintenance
-	HostName 192.168.88.99
-	Port 22
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlightwell
-	SendEnv LANG LC_*
-	SetEnv TERM=xterm-256color
-	RequestTTY yes
+	WarnWeakCrypto no
 
 Host rpi
 	User rpi
@@ -57,21 +48,13 @@ Host rpi
 	VisualHostKey yes
 
 Host aeza
-	User root
-	HostName 89.208.103.40
-	Port 22376
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
-	RemoteForward 52698 127.0.0.1:52698
-	RequestTTY yes
-	SetEnv TERM=xterm-256color
 	RemoteCommand /root/.cargo/bin/zellij attach -c {{ .chezmoi.hostname }}
 	VisualHostKey yes
 
-Host aeza-direct
+Host aeza aeza-direct
 	User root
 	HostName 89.208.103.40
 	Port 22376
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
 	SetEnv TERM=xterm-256color
 	RequestTTY yes
-	VisualHostKey no
