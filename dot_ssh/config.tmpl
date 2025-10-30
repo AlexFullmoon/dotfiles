@@ -1,6 +1,6 @@
 AddKeysToAgent yes
 {{- if eq .chezmoi.os "darwin" }}
-IgnoreUnknown yes
+IgnoreUnknown UseKeychain
 UseKeychain yes
 {{- end }}
 
@@ -38,9 +38,8 @@ Host moonlightwell moonlightwell-direct
 	RemoteForward 52698 127.0.0.1:52698
 	SetEnv TERM=xterm-256color
 	RequestTTY yes
-{{- if eq .chezmoi.os "linux" }}
+	IgnoreUnknown WarnWeakCrypto
 	WarnWeakCrypto no
-{{- end }}
 
 Host rpi
 	User rpi
