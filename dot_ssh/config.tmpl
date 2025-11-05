@@ -25,17 +25,17 @@ Host router
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
 
 
-Host moonlightwell
- 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{ .chezmoi.hostname }}
-	VisualHostKey yes
+#Host moonlightwell
+# 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{ .chezmoi.hostname }}
+#	VisualHostKey yes
+#	RemoteForward 52698 127.0.0.1:52698
 
 Host moonlightwell moonlightwell-direct
-	User maintenance
+	User root
 	HostName 192.168.88.99
-	Port 22
+	Port 22376
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlightwell
 	SendEnv LANG LC_*
-	RemoteForward 52698 127.0.0.1:52698
 	SetEnv TERM=xterm-256color
 	RequestTTY yes
 	WarnWeakCrypto no
