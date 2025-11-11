@@ -19,7 +19,6 @@ Host github.com
 
 Host router
 	User fullmoon
-	# HostName 77.123.249.79
 	HostName 192.168.88.1
 	Port 52022
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
@@ -30,6 +29,12 @@ Host router
 #	VisualHostKey yes
 #	RemoteForward 52698 127.0.0.1:52698
 
+{{- if ne .chezmoi.os "windows" }}
+
+Match Originalhost moonlightwell Exec "! ifconfig | grep 192.168.88"
+	HostName 77.123.249.79
+{{- end }}
+
 Host moonlightwell moonlightwell-direct
 	User root
 	HostName 192.168.88.99
@@ -39,6 +44,18 @@ Host moonlightwell moonlightwell-direct
 	SetEnv TERM=xterm-256color
 	RequestTTY yes
 	WarnWeakCrypto no
+
+{{- if ne .chezmoi.os "windows" }}
+
+Match Originalhost borgbackup Exec "! ifconfig | grep 192.168.88"
+	HostName 77.123.249.79
+{{- end }}
+
+Host borgbackup
+	User borg
+	HostName 192.168.88.99
+	Port 22375
+	IdentityFile /var/home/fullmoon/.ssh/shapeshifter
 
 Host rpi
 	User rpi
