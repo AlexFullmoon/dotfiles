@@ -7,7 +7,7 @@ UseKeychain yes
 Host gitea
 	HostName git.moonlightwell.ru
 	Port 22
-	User sc-gitea
+	User git
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/gitea
 	IdentitiesOnly yes
 
@@ -23,17 +23,17 @@ Host router
 	Port 52022
 	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
 
-
-#Host moonlightwell
-# 	RemoteCommand /var/services/homes/linuxbrew/.linuxbrew/bin/zellij attach -c {{ .chezmoi.hostname }}
-#	VisualHostKey yes
-#	RemoteForward 52698 127.0.0.1:52698
-
 {{- if ne .chezmoi.os "windows" }}
 
 Match Originalhost moonlightwell Exec "! ifconfig | grep 192.168.88"
 	HostName 77.123.249.79
+Match Originalhost moonlightwell-direct Exec "! ifconfig | grep 192.168.88"
+	HostName 77.123.249.79
 {{- end }}
+
+Host moonlightwell
+ 	RemoteCommand /usr/bin/zellij attach -c {{ .chezmoi.hostname }}
+	VisualHostKey yes
 
 Host moonlightwell moonlightwell-direct
 	User root
