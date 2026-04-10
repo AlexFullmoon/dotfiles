@@ -2,14 +2,10 @@ README.md
 
 # Linux-specific
 {{- if ne .chezmoi.os "linux" }}
-.config/alacritty
-.config/sublime-text
-.config/solaar
 {{- end }}
 
 # macOS-specific
 {{- if ne .chezmoi.os "darwin" }}
-.alacritty.toml
 Library/
 Library/**
 {{- end }}

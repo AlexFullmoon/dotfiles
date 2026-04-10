@@ -25,9 +25,9 @@ Host router
 
 {{- if ne .chezmoi.os "windows" }}
 
-Match Originalhost moonlightwell Exec "! ifconfig | grep 192.168.88"
+Match Originalhost moonlightwell Exec "! ifconfig | grep -q -e '192.168.88' -e '10.10.10'"
 	HostName 77.123.249.79
-Match Originalhost moonlightwell-direct Exec "! ifconfig | grep 192.168.88"
+Match Originalhost moonlightwell-direct Exec "! ifconfig | grep -q -e '192.168.88' -e '10.10.10'"
 	HostName 77.123.249.79
 {{- end }}
 
@@ -47,8 +47,8 @@ Host moonlightwell moonlightwell-direct
 
 {{- if ne .chezmoi.os "windows" }}
 
-Match Originalhost borgbackup Exec "! ifconfig | grep 192.168.88"
-	HostName 77.123.249.79
+#Match Originalhost borgbackup Exec "! ifconfig | grep -q -e '192.168.88' -e '10.10.10'"
+#	HostName 77.123.249.79
 {{- end }}
 
 Host borgbackup

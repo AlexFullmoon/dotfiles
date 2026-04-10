@@ -22,6 +22,5 @@ end
 
 if status is-interactive
     [ "$(command -v starship)" ] && eval "$(starship init fish)"
-    [ "$(command -v atuin)" ] && eval "$(atuin init fish)"
     [ "$(command -v zoxide)" ] && eval "$(zoxide init fish)"
 end
