@@ -32,7 +32,7 @@ Match Originalhost moonlightwell-direct Exec "! ifconfig | grep -q -e '192.168.8
 {{- end }}
 
 Host moonlightwell
- 	RemoteCommand /usr/bin/zellij attach -c {{ .chezmoi.hostname }}
+ 	RemoteCommand /mnt/user/appdata/shell/atch -C 0 {{ .chezmoi.hostname }} /usr/bin/fish
 	VisualHostKey yes
 
 Host moonlightwell moonlightwell-direct
