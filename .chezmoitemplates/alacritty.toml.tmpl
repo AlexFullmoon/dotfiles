@@ -26,7 +26,7 @@ dynamic_title = true
 resize_increments = true
 dimensions = { columns = 120, lines = 32 }
 
-# Font 
+# Font
 
 [font]
 builtin_box_drawing = false
@@ -53,15 +53,20 @@ style = { blinking = "On", shape = "Beam"}
 
 # Keybindings
 
-{{- if eq .chezmoi.os "windows" }}
+
 [keyboard]
 bindings = [
+{{- if eq .chezmoi.os "windows" }}
 { key = "V", mods = "Control", action = "Paste" },
 { key = "V", mods = "Control|Shift", chars = "\u0016" },
 { key = "C", mods = "Control", action = "Copy" },
 { key = "C", mods = "Control|Shift", chars = "\u0003" },
-]
 {{- end }}
+{ key = "\\", mods = 'Control', chars = "\u001c" },
+]
+
+
+
 
 [mouse]
 bindings = [
