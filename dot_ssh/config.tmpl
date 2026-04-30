@@ -8,20 +8,14 @@ Host gitea
 	HostName git.moonlightwell.ru
 	Port 22
 	User git
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/gitea
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/git
 	IdentitiesOnly yes
 
 Host github.com
 	HostName github.com
 	User git
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/github
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/git
 	IdentitiesOnly yes
-
-Host router
-	User fullmoon
-	HostName 192.168.88.1
-	Port 52022
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlight
 
 {{- if ne .chezmoi.os "windows" }}
 
@@ -39,9 +33,7 @@ Host moonlightwell moonlightwell-direct
 	User root
 	HostName 192.168.88.99
 	Port 22376
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/moonlightwell
-	SendEnv LANG LC_*
-	SetEnv TERM=xterm-256color
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/serverkey
 	RequestTTY yes
 	WarnWeakCrypto no
 
@@ -61,7 +53,7 @@ Host rpi
 	User rpi
 	HostName 192.168.88.100
 	Port 22
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/rpi
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/serverkey
 	VisualHostKey yes
 
 Host aeza
@@ -72,6 +64,5 @@ Host aeza aeza-direct
 	User root
 	HostName 89.208.103.40
 	Port 22376
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/aeza
-	SetEnv TERM=xterm-256color
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/serverkey
 	RequestTTY yes
