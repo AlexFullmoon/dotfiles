@@ -8,16 +8,12 @@ Host gitea
 	HostName git.moonlightwell.ru
 	Port 22
 	User git
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/git
-	IdentitiesOnly yes
 
 Host github.com
 	HostName github.com
 	User git
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/git
-	IdentitiesOnly yes
 
-{{- if ne .chezmoi.os "windows" }}
+{{- if ne .chezmoi.hostname "Trueblood" }}
 
 Match Originalhost moonlightwell Exec "! ifconfig | grep -q -e '192.168.88' -e '10.10.10'"
 	HostName 77.123.249.79
@@ -33,11 +29,10 @@ Host moonlightwell moonlightwell-direct
 	User root
 	HostName 192.168.88.99
 	Port 22376
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/serverkey
 	RequestTTY yes
 	WarnWeakCrypto no
 
-{{- if ne .chezmoi.os "windows" }}
+{{- if ne .chezmoi.hostname "Trueblood" }}
 
 #Match Originalhost borgbackup Exec "! ifconfig | grep -q -e '192.168.88' -e '10.10.10'"
 #	HostName 77.123.249.79
@@ -47,22 +42,11 @@ Host borgbackup
 	User borg
 	HostName 192.168.88.99
 	Port 22375
-	IdentityFile /var/home/fullmoon/.ssh/shapeshifter
+	IdentityFile {{ .chezmoi.homeDir }}/.ssh/backup
+	IdentitiesOnly yes
 
 Host rpi
 	User rpi
 	HostName 192.168.88.100
 	Port 22
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/serverkey
 	VisualHostKey yes
-
-Host aeza
-	RemoteCommand /root/.cargo/bin/zellij attach -c {{ .chezmoi.hostname }}
-	VisualHostKey yes
-
-Host aeza aeza-direct
-	User root
-	HostName 89.208.103.40
-	Port 22376
-	IdentityFile {{ .chezmoi.homeDir }}/.ssh/serverkey
-	RequestTTY yes
